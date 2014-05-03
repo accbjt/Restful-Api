@@ -19,7 +19,8 @@ app.configure(function() {
 
 // define model =================
 var Todo = mongoose.model('Todo', {
-    text : String
+    text : String,
+    date : String
 });
 
 // routes ======================================================================
@@ -45,6 +46,7 @@ app.post('/api/todos', function(req, res) {
     // create a todo, information comes from AJAX request from Angular
     Todo.create({
         text : req.body.text,
+        date : req.body.date,
         done : false
     }, function(err, todo) {
         if (err)
