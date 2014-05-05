@@ -3,11 +3,16 @@
 // set up ========================
 var express  = require('express');
 var app      = express(); 								// create our app w/ express
-var mongoose = require('mongoose'); 					// mongoose for mongodb
-
+var mongoose = require('mongoose');
+//connects to database.js for mongo address for better file structure.
+//module.exports allows you to pass data from one file to another.
+// Just using require('./config/database')doesn’t automagically
+// give you access to those variables.
+var database = require('./config/database');
+// tells mongoose to connect to the url:...... in database.js.
+mongoose.connect(database.url);
 // configuration =================
 
-mongoose.connect('mongodb://bjtran:todoapp@ds035488.mongolab.com:35488/todoapp'); 	// connect to mongoDB database on modulus.io
 
 app.configure(function() {
     app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users

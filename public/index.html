@@ -40,7 +40,7 @@
             <!-- LOOP OVER THE TODOS IN $scope.todos -->
             <div class="checkbox" ng-repeat="todo in todos">
                 <label>
-                    <input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }} {{ todo.date }}
+                    <input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }} - {{ todo.date }}
                 </label>
             </div>
 
